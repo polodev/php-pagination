@@ -7,7 +7,26 @@
 </head>
 <body class="bg-primary">
   <div class="container bg-light p-5 mt-5">
-    <h2 class="text-center mb-4">People Data</h2>
+    <h2 class="text-center mb-4">
+      <a href="/" class="text-danger">People Data</a>
+    </h2>
+    <form method="get">
+      <div class="row">
+        <div class="col-md-4 ml-auto">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" name="search" id="search" placeholder="Serach By person name ..." class="form-control">
+              <div class="input-group-addon">
+                <button type="submit" class="btn btn-info">
+                  Search
+                </button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
     <table class="table table-bordered">
       <tr>
         <th>id</th>

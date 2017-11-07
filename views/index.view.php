@@ -44,15 +44,15 @@
     <nav>
       <ul class="pagination">
         <li class="page-item <?= $page <= 1 ? 'disabled' : '' ?>">
-          <a href="/?page=<?= $page - 1 ; ?>" class="page-link">Previous</a>
+          <a href="<?php $uri; ?>page=<?= $page - 1 ; ?>" class="page-link">Previous</a>
         </li>
         <?php for($i = 1; $i <= $total_page; $i++) : ?>
           <li class="page-item <?= $page == $i ? 'active' : '' ?>">
-            <a href="/?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
+            <a href="<?= $uri; ?>page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
           </li>
         <?php endfor; ?>
         <li class="page-item <?= $page >= $total_page ? 'disabled' : '' ?>">
-          <a href="/?page=<?= $page + 1 ; ?>" class="page-link">Next</a>
+          <a href="<?= $uri; ?>page=<?= $page + 1 ; ?>" class="page-link">Next</a>
         </li>
       </ul>
   </nav>

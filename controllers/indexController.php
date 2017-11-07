@@ -10,12 +10,9 @@ if (isset($_GET['page'])) {
 }
 $perpage = 5;
 $offset = $page * $perpage - $perpage;
-
-$people =  $query->get_users_from_db($offset, $perpage) ;
-if (isset($_GET['search'])) {
-  $searchText = $_GET['search'];
-  $people =  $query->get_users_from_db($offset, $perpage, $searchText) ;
-}
-$nubmer_of_record  = $query->get_total_row_number() ;
+$searchText = isset($_GET['search']) ? $_GET['search'] : '';
+$uri = isset($_GET['search']) ? '/?search=' . $_GET['search'] . '&' : '/?';
+$people =  $query->get_users_from_db($offset, $perpage, $searchText) ;
+$nubmer_of_record  = $query->get_total_row_number($searchText) ;
 $total_page  = ceil ($nubmer_of_record / $perpage);
 require 'views/index.view.php';

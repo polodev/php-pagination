@@ -6,9 +6,9 @@ class Query {
     $this->connection = $connection;
   }
   public function get_users_from_db ($offset = 5, $limit = 5, $search = '') {
-    $sql = "select * from people limit $offset, $limit";
+    $sql = "select * from people limit $limit offset $offset";
     if (! empty($search)) {
-      $sql = "select * from people where name like '%{$search}%' or email like '%{$search}%'limit $offset, $limit";
+      $sql = "select * from people where name like '%{$search}%' or email like '%{$search}%' limit $limit offset $offset ";
     }
     $statement = $this->connection->prepare($sql);
     $statement->execute();
